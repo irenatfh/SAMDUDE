@@ -7,7 +7,7 @@ These scripts denoise aligned and sorted SAM files by changing nucleotide bases 
 
 ## Installation
 
-SAMdude requires no additional software, but does require Python 3+ and NumPy.
+SAMdude requires no additional software beyond Python 3+ and NumPy.
 
 ## Usage
 
