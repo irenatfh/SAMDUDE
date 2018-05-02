@@ -94,8 +94,7 @@ def quality_dude(
                         lhs = read_prepared[ind - k:ind]
                         rhs = read_prepared[ind + 1:ind + k + 1]
                         context = lhs + rhs
-                        if (context in contexts):  # Added April 2018 to check quality scores
-#                         if ((context in contexts) and (prob < 0.9)):  # Removed April 2018 to check quality scores
+                        if ((context in contexts) and (prob < 0.9)):
                             pos_base = ALPH.find(base)
                             index_bin = bisect.bisect(BIN_LIMITS, score)
                             index_col = pos_base + 4 * index_bin
@@ -112,10 +111,9 @@ def quality_dude(
                                     prob_opt = np.mean((prob, prob_opt))
                                 else:
                                     counter += 1
-                                    hist_qsa[score] += 1  # Added April 2018 to check quality scores
                                 score_opt = int(round(-10 * np.log10(
                                             1 - prob_opt)))
-#                                 hist_qsa[score_opt] += 1  # Removed April 2018 to check quality scores
+                                hist_qsa[score_opt] += 1
                                 score_opt = chr(score_opt + 33)
                                 ind_write = list_ind[ind]
                                 read_denoised[ind_write] = ALPH[base_opt]
@@ -127,6 +125,5 @@ def quality_dude(
                 fd.write(line)
     print('Bases changed: %s' %counter)
     print('Original quality scores:\n%s' %hist_original)
-#     print('QSA scores:\n%s' %hist_qsa)  # Removed April 2018 to check quality scores
-    print('Original quality scores of adjusted bases:\n%s' %hist_qsa)  # Added April 2018 to check quality scores
+    print('QSA scores:\n%s' %hist_qsa)
     return
