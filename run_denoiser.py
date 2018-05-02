@@ -7,8 +7,8 @@ import resource
 import argparse
 parser=argparse.ArgumentParser(
     description='SAMDUDE is a genomic sequence denoiser that operates on aligned SAM files')
-parser.add_argument('original_file', type=str, help='Filename (including path) of the SAM file to be denoised.')
-parser.add_argument('denoised_file', type=str, help='Filename (including path) of the denoised SAM file.')
+parser.add_argument('original.sam', type=str, help='Filename (including path) of the SAM file to be denoised.')
+parser.add_argument('denoised.sam', type=str, help='Filename (including path) of the denoised SAM file.')
 args = parser.parse_args()
 
 import preprocess as pp
