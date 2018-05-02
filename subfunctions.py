@@ -100,7 +100,6 @@ def map_read(
     return read, list_pos
 
 
-
 ################################################################################
 def map_read_scores(
     pos_map, cigar, read, scores, len_read):

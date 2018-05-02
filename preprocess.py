@@ -63,7 +63,6 @@ def estimate_sequence(
         len_seq (int): Length of the sequence estimate.
         
      """
-    
     pileup = np.zeros((pos_max - pos_min + 1, 4), dtype=np.int)
     counter = 0
     with open(file, 'r') as f:
