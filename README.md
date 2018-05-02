@@ -14,5 +14,5 @@ The input SAM files must be sorted. Denoising affects only the read and quality 
 To denoise a sam file, use the following command:
 
 ```
-python3 run_denoiser.py noisy_file.sam denoised_file.sam
+python3 run_denoiser.py original.sam denoised.sam
 ```
