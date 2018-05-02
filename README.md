@@ -1,4 +1,4 @@
-# SAMdude
+# SAMDUDE
 Universal denoiser for genomic sequencing
 
 Irena Fischer-Hwang ihwang@stanford.edu
