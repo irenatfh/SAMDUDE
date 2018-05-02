@@ -3,9 +3,13 @@ import time
 import timeit
 import resource
 
-if len(sys.argv) != 3:
-    print('Wrong number of arguments')
-    sys.exit('Error')
+################################################################################
+import argparse
+parser=argparse.ArgumentParser(
+    description='SAMDUDE is a genomic sequence denoiser that operates on aligned SAM files')
+parser.add_argument('original_file', type=str, help='Filename (including path) of the SAM file to be denoised.')
+parser.add_argument('denoised_file', type=str, help='Filename (including path) of the denoised SAM file.')
+args = parser.parse_args()
 
 import preprocess as pp
 import denoise as de
@@ -38,11 +42,3 @@ print('Maximum memory used: %.3f GB' % (resource.getrusage(
 
 total_time = stop - start
 print('Total running time: %.3f' % total_time)
-
-
-################################################################################
-import argparse
-parser=argparse.ArgumentParser(
-    description='SAMDUDE is a genomic sequence denoiser that operates on aligned SAM files')
-parser.add_argument('noisy_file', type=str, help='Filename (including path) of the SAM file to be denoised.')
-parser.add_argument('denoised_file', type=str, help='Filename (including path) of the denoised SAM file.')
